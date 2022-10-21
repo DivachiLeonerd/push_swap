@@ -6,7 +6,7 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:36:09 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/17 15:46:35 by afonso           ###   ########.fr       */
+/*   Updated: 2022/10/21 11:18:23 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	*check_input(int argc, char **argv, int **numbers)
 	*numbers = malloc((argc - 1) * sizeof(int));
 	if (!(*numbers))
 	{
-		error_print("bad allocation\n");
+		ft_printf("Error\n");
 		return (0);
 	}
 	while (i < argc)
@@ -34,7 +34,7 @@ int	*check_input(int argc, char **argv, int **numbers)
 	}
 	if (check_repeated_args(argc, *numbers) == 0)
 	{
-		error_print("bad arguments\n");
+		ft_printf("Error\n");
 		free (*numbers);
 		exit (0);
 	}

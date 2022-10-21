@@ -6,7 +6,7 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 18:45:28 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/13 15:57:59 by afonso           ###   ########.fr       */
+/*   Updated: 2022/10/21 11:17:34 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_stack
 
 char		*ft_utoa(unsigned int number);
 int			ft_printf(char *string, ...);
-int			*check_input(int argc, char **argv, int **numbers);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
@@ -75,11 +74,12 @@ void		reverse_rotate(t_stack **lst, char stack);
 void		push(t_stack **stack_receiver, t_stack **stack_giver, char stack);
 int			is_stack_complete(t_stack **lst, int flag);
 void		free_stack(t_stack **lst);
-int			error_print(char *message);
 void		sort_stacks(t_stack **lst, int argc);
 int			set_astack(t_stack **lst, int **numbers, int int_num);
 int			compare_int(int i, int j);
 int			check_repeated_args(int argc, int *numbers);
 void		sort_radix(t_stack **lst);
 int			find_average(t_stack *stack);
+int			*check_input(int argc, char **argv, int **numbers);
+void		checkif_number(char **argv, int *ret_address, int i, int *j);
 #endif
