@@ -6,16 +6,16 @@
 #    By: afonso <afonso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 15:45:01 by afonso            #+#    #+#              #
-#    Updated: 2022/10/17 14:46:05 by afonso           ###   ########.fr        #
+#    Updated: 2022/10/21 17:05:30 by afonso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := push_swap
 HEADER := -I./
-OBJS:= small_stack.o swap_error.o swap_instructions.o swap_utils_combinations.o swap_utils.o swap_utils2.o big_stack.o input_handler.o
+OBJS:= small_stack.o input_aux.o swap_instructions.o swap_utils_combinations.o swap_utils.o swap_utils2.o big_stack.o input_handler.o
 OBJS_T := tester.o
 CC := gcc
-CFLAGS :=-Wall -Wextra -Werror
+CFLAGS :=-fsanitize=address -g #-Wall -Wextra -Werror
 LIBPATHS := -L./ -lftprintf
 RM := rm -f
 
