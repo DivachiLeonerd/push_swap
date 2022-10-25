@@ -6,7 +6,7 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 18:45:28 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/21 11:33:22 by afonso           ###   ########.fr       */
+/*   Updated: 2022/10/24 18:03:35 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void		push(t_stack **stack_receiver, t_stack **stack_giver, char stack);
 int			is_stack_complete(t_stack **lst, int flag);
 void		free_stack(t_stack **lst);
 void		sort_stacks(t_stack **lst, int argc, int *numbers);
+void		three_stack(t_stack **lst);
 int			set_astack(t_stack **lst, int **numbers, int int_num);
 int			compare_int(int i, int j);
 int			check_repeated_args(int argc, int *numbers);

@@ -6,7 +6,7 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:33:16 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/13 16:15:17 by afonso           ###   ########.fr       */
+/*   Updated: 2022/10/24 17:29:01 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,6 @@ void	compare_n_push(t_stack **lst, int binary)
 		temp--;
 		if (temp == 0)
 			break ;
-	}
-	while (i > 0)
-	{
-		reverse_rotate(lst, 'a');
-		i--;
 	}
 }
 
