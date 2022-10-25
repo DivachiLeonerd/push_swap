@@ -83,5 +83,4 @@ void		sort_radix(t_stack **lst);
 int			find_average(t_stack *stack);
 int			check_input(int argc, char **argv, int **numbers);
 void		checkif_number(char **argv, int *ret_address, int i, int *j);
-
 #endif
