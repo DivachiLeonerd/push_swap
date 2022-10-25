@@ -6,7 +6,7 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 10:24:44 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/11 14:29:24 by afonso           ###   ########.fr       */
+/*   Updated: 2022/10/18 12:14:20 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	check_repeated_args(int argc, int *numbers)
 
 	i = 0;
 	j = 0;
-	while (i < argc - 2)
+	while (i < argc - 1)
 	{
-		while (j < argc - 1)
+		while (j < argc)
 		{
 			if (i == j)
 				j++;

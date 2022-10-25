@@ -6,79 +6,88 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 18:26:38 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/17 15:44:01 by afonso           ###   ########.fr       */
+/*   Updated: 2022/10/24 18:04:01 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	three_stack(t_stack **lst)
+static void	rot_or_rr(int index, t_stack **lst)
 {
-	t_stack	*a_ptr;
-
-	a_ptr = *lst;
-	while (!is_stack_complete(lst, 0))
+	if (index >= 3)
 	{
-		a_ptr = *lst;
-		if (a_ptr->content > a_ptr->next_node->content
-			&& ft_lstlast(*lst)->content < a_ptr->next_node->content)
+		while (index < ft_lstsize(*lst))
+		{
+			index++;
+			reverse_rotate(lst, 'a');
+		}
+	}
+	else
+	{
+		while (index--)
 		{
 			rotate(lst, 'a');
-			swap(lst, 'a');
 		}
-		else if (a_ptr->content > a_ptr->next_node->content)
-			swap(lst, 'a');
-		if (a_ptr->content > ft_lstlast(*lst)->content
-			&& a_ptr->next_node->content < ft_lstlast(*lst)->content)
-			rotate(lst, 'a');
-		if (a_ptr->content > ft_lstlast(*lst)->content
-			|| a_ptr->next_node->content > ft_lstlast(*lst)->content)
-			reverse_rotate(lst, 'a');
 	}
 }
 
+static int	get_index(t_stack **lst)
+{
+	t_stack		*a_ptr;
+	int			i;
+	int			index;
+	int			smallest_number;
+
+	index = 0;
+	a_ptr = *lst;
+	i = 0;
+	smallest_number = a_ptr->content;
+	while (a_ptr)
+	{
+		if (smallest_number > a_ptr->content)
+		{
+			smallest_number = a_ptr->content;
+			index = i;
+		}
+		i++;
+		a_ptr = a_ptr->next_node;
+	}
+	return (index);
+}
+
+//pushes the 2 smallest numbers of stack A to stack B
+
 static void	five_stack_aux(t_stack **lst)
 {
-	t_stack		**a_ptr;
-	t_stack		**b_ptr;
-	int			push_num;
+	int	i;
 
-	push_num = 2;
-	a_ptr = lst;
-	b_ptr = lst + 1;
-	if ((*b_ptr)->content > (*b_ptr)->next_node->content)
-		swap(lst + 1, 'b');
-	while (!is_stack_complete(lst, 1))
+	while (ft_lstsize(*lst) != 3)
 	{
-		if (push_num && (*b_ptr)->content < (*a_ptr)->content)
-		{
-			push(a_ptr, b_ptr, 'a');
-			rotate(a_ptr, 'a');
-			push_num--;
-		}
-		else
-			rotate(a_ptr, 'a');
+		i = get_index(lst);
+		rot_or_rr(i, lst);
+		push(lst + 1, lst, 'b');
+		i = 0;
 	}
 }
 
 static void	five_stack(t_stack **lst)
 {
-
 	if (!is_stack_complete(lst, 1))
 	{
-		push(lst + 1, lst, 'b');
-		push(lst + 1, lst, 'b');
+		five_stack_aux(lst);
 		three_stack(lst);
 	}
-	five_stack_aux(lst);
+	push(lst, lst + 1, 'a');
+	push(lst, lst + 1, 'a');
 }
 
-void	sort_stacks(t_stack **lst, int argc)
+void	sort_stacks(t_stack **lst, int arg_c, int *numbers)
 {
-	if (argc > 4 && argc <= 6)
-		return (five_stack(lst));
-	else if (argc <= 4)
-		return (three_stack(lst));
+	if (arg_c > 3 && arg_c <= 6)
+		five_stack(lst);
+	else if (arg_c <= 3)
+		three_stack(lst);
 	else
 		sort_radix(lst);
+	free(numbers);
 }
