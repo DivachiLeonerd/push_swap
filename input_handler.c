@@ -6,7 +6,7 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:36:09 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/21 17:15:42 by afonso           ###   ########.fr       */
+/*   Updated: 2022/10/28 11:15:29 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,18 @@ int	check_input(int argc, char **argv, int **numbers)
 
 	if (argc < 2)
 		exit(0);
+	are_args_ints(argv);
 	alloc = count_complex_arg(argv);
 	*numbers = malloc((alloc) * sizeof(int) + 1);
 	if (!(*numbers))
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		return (0);
 	}
 	allocate_complex_arg(argv, numbers);
 	if (check_repeated_args(alloc, *numbers) == 0)
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		free (*numbers);
 		exit (0);
 	}

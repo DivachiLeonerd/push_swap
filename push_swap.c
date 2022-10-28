@@ -6,7 +6,7 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 19:02:21 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/21 17:04:10 by afonso           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:05:05 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack	*stack[2];
-	int		*numbers;
-	int		arg_c;
+	t_stack		*stack[2];
+	int			*numbers;
+	int			arg_c;
 
 	stack[0] = NULL;
 	(stack)[1] = NULL;
