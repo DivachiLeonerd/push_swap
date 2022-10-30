@@ -6,7 +6,7 @@
 #    By: afonso <afonso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 15:45:01 by afonso            #+#    #+#              #
-#    Updated: 2022/10/28 11:11:00 by afonso           ###   ########.fr        #
+#    Updated: 2022/10/28 18:24:11 by afonso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJS:= three_stack.o small_stack.o input_aux.o swap_instructions.o swap_utils_co
 OBJS_T := tester.o
 CC := gcc
 CFLAGS :=-Wall -Wextra -Werror -g #-fsanitize=address
-LIBPATHS := -L./ -lftprintf
+LIBPATHS := -L./ -lftprintf -lft
 RM := rm -f
 
 all:linux
@@ -24,7 +24,7 @@ all:linux
 $(NAME): ${OBJS}
 	$(CC) $(OBJS) -o $(NAME)
 
-linux: $(OBJS)
+linux: libft.a $(OBJS) 
 	${CC} ${CFLAGS} ${NAME}.c ${OBJS} ${LIBPATHS} ${HEADER} -o ${NAME}
 
 test:${OBJS} libft.a

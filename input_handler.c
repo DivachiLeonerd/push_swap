@@ -6,7 +6,7 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:36:09 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/28 11:15:29 by afonso           ###   ########.fr       */
+/*   Updated: 2022/10/30 09:48:39 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ int	check_input(int argc, char **argv, int **numbers)
 
 	if (argc < 2)
 		exit(0);
-	are_args_ints(argv);
 	alloc = count_complex_arg(argv);
-	*numbers = malloc((alloc) * sizeof(int) + 1);
+	*numbers = malloc((alloc) * sizeof(int));
 	if (!(*numbers))
 	{
 		write(2, "Error\n", 6);
@@ -44,23 +43,28 @@ int	check_input(int argc, char **argv, int **numbers)
 static void	fill_array(int **numbers, int argc)
 {
 	int		i;
-	int		lowest_num;
+	int		bigger_than;
+	int		index;
+	int		*temp;
 
-	lowest_num = 0;
-	i = 0;
-	while (i < argc - 1)
+	temp = malloc(argc * sizeof(int));
+	index = 0;
+	bigger_than = 0;
+	while (index < argc)
 	{
-		if ((*numbers)[i] < 0)
-			if ((*numbers)[i] < lowest_num)
-				lowest_num = (*numbers)[i];
-		i++;
+		i = 0;
+		bigger_than = 0;
+		while (i < argc)
+		{
+			if ((*numbers)[index] > (*numbers)[i])
+				bigger_than++;
+			i++;
+		}
+		temp[index] = bigger_than;
+		index++;
 	}
-	i = 0;
-	while (i < argc)
-	{
-		(*numbers)[i] += -lowest_num;
-		i++;
-	}
+	fill_array_temp(numbers, temp, argc);
+	free(temp);
 }
 
 int	set_astack(t_stack **lst, int **numbers, int argc)
@@ -118,7 +122,7 @@ static void	allocate_complex_arg(char **argv, int **numbers)
 	{
 		j = 0;
 		temp = ft_split(argv[arg_num], ' ');
-		while (temp[j])
+		while (temp[j] && alloc_complex_arg_aux(temp, j))
 		{
 			(*numbers)[aux++] = ft_atoi(temp[j]);
 			j++;
@@ -130,3 +134,4 @@ static void	allocate_complex_arg(char **argv, int **numbers)
 		arg_num++;
 	}
 }
+

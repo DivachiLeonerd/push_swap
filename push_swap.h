@@ -6,7 +6,7 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 18:45:28 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/28 11:14:25 by afonso           ###   ########.fr       */
+/*   Updated: 2022/10/30 09:48:29 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
-long int	ft_atoi(const char *str);
+int			ft_atoi(const char *str);
+long int	ft_atol(const char *str);
 void		*ft_calloc(size_t count, size_t size);
 char		*ft_strdup(const char *s1);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
@@ -89,5 +90,7 @@ int			find_average(t_stack *stack);
 int			check_input(int argc, char **argv, int **numbers);
 void		checkif_number(char **argv, int *ret_address, int i, int *j);
 void		error(void);
-void		are_args_ints(char **argv);
+int			are_args_ints(char *argv);
+void		fill_array_temp(int **numbers, int *temp, int argc);
+int			alloc_complex_arg_aux(char **temp, int j);
 #endif
