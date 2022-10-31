@@ -48,4 +48,3 @@ void	checkif_number(char **argv, int *ret_address, int i, int *j)
 	}
 	*ret_address = ret;
 }
-

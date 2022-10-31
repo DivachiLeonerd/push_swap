@@ -6,7 +6,7 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:36:09 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/30 09:48:39 by afonso           ###   ########.fr       */
+/*   Updated: 2022/10/30 09:54:13 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,4 +134,3 @@ static void	allocate_complex_arg(char **argv, int **numbers)
 		arg_num++;
 	}
 }
-
