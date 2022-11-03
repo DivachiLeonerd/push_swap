@@ -6,7 +6,7 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 18:26:38 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/27 18:05:22 by afonso           ###   ########.fr       */
+/*   Updated: 2022/11/03 11:37:29 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void	five_stack(t_stack **lst)
 
 void	sort_stacks(t_stack **lst, int arg_c, int *numbers)
 {
-	if (arg_c > 3 && arg_c <= 6)
+	if (arg_c > 3 && arg_c < 6)
 		five_stack(lst);
 	else if (arg_c <= 3)
 		three_stack(lst);

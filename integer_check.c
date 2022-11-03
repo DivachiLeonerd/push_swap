@@ -6,7 +6,7 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 11:07:39 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/30 09:49:27 by afonso           ###   ########.fr       */
+/*   Updated: 2022/11/03 11:37:24 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ int	alloc_complex_arg_aux(char **temp, int j)
 		free(temp);
 		error();
 	}
-	return (1);
+	return (0);
 }

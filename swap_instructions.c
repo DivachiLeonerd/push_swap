@@ -6,7 +6,7 @@
 /*   By: afonso <afonso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 17:09:53 by afonso            #+#    #+#             */
-/*   Updated: 2022/10/17 15:40:46 by afonso           ###   ########.fr       */
+/*   Updated: 2022/11/03 12:14:49 by afonso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	rotate(t_stack **lst, char stack)
 	t_stack	*tmp;
 	t_stack	*node;
 
-	ft_printf("r%c\n", stack);
 	node = *lst;
 	tmp = ft_lstnew(node->content);
 	ft_lstadd_back(lst, tmp);
@@ -41,7 +40,7 @@ void	rotate(t_stack **lst, char stack)
 	tmp = node->next_node;
 	free(node);
 	*lst = tmp;
-	node = *lst;
+	ft_printf("r%c\n", stack);
 }
 
 void	reverse_rotate(t_stack **lst, char stack)
@@ -51,7 +50,6 @@ void	reverse_rotate(t_stack **lst, char stack)
 
 	node = *lst;
 	last = ft_lstlast(*lst);
-	node = *lst;
 	if (!node || !node->next_node)
 		return ;
 	while (node->next_node != last)
