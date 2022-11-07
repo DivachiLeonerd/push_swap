@@ -6,7 +6,7 @@
 #    By: afonso <afonso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 15:45:01 by afonso            #+#    #+#              #
-#    Updated: 2022/11/03 12:42:19 by afonso           ###   ########.fr        #
+#    Updated: 2022/11/07 15:34:22 by afonso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ HEADER := -I./
 OBJS:= three_stack.o small_stack.o input_aux.o swap_instructions.o swap_utils_combinations.o swap_utils.o swap_utils2.o big_stack.o input_handler.o integer_check.o
 OBJS_T := tester.o
 CC := gcc
-CFLAGS :=-Wall -Wextra -Werror #-g #-fsanitize=address
+CFLAGS :=-Wall -Wextra -Werror #-g -fsanitize=address
 LIBPATHS := -L./ -lftprintf -lft
 RM := rm -f
 
